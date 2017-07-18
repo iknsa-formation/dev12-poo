@@ -10,11 +10,23 @@ namespace Aston\BlogBundle\Controller;
 
 
 use Aston\app\Request;
+use Aston\app\DB;
 
 class DefaultController
 {
     public function indexAction(Request $request)
     {
-        echo "Je suis dans indexAction";
+        $DB = new DB();
+
+        $sql = "SELECT * FROM article";
+        $stm = $DB->getDb()->prepare($sql);
+        $stm->execute();
+
+        dump($stm->fetchAll());
+
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+        $twig = new \Twig_Environment($loader);
+
+        echo $twig->render('default.html', array('name' => 'Fabien'));
     }
 }
