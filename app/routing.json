@@ -1,0 +1,6 @@
+{
+  "default": {
+    "controller": "Aston\\BlogBundle\\Controller\\Default",
+    "action": "index"
+  }
+}

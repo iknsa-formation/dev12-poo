@@ -1,16 +1,20 @@
 {
-    "name": "aston/poo",
+    "name": "aston/blog",
+    "description": "Blog for aston school",
+    "type": "prcject",
     "authors": [
         {
             "name": "Moustakime KIFIA",
             "email": "mkifia@icloud.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
-            "inc\\" : "Article",
-            "ProjectUnderscore": "app/code/local/"
+            "": "src/",
+            "Aston\\app\\":"app/"
         }
+    },
+    "require": {
+        "symfony/var-dumper": "^3.3"
     }
 }
