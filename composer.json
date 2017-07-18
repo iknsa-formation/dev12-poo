@@ -1,0 +1,16 @@
+{
+    "name": "aston/poo",
+    "authors": [
+        {
+            "name": "Moustakime KIFIA",
+            "email": "mkifia@icloud.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "inc\\" : "Article",
+            "ProjectUnderscore": "app/code/local/"
+        }
+    }
+}
