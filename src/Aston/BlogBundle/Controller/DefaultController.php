@@ -8,7 +8,7 @@
 
 namespace Aston\BlogBundle\Controller;
 
-
+use Romenys\Http\Response\JsonResponse;
 use Aston\app\Request;
 use Aston\BlogBundle\Entity\Article;
 use Aston\BlogBundle\Repository\ArticleRepository;
@@ -23,6 +23,11 @@ class DefaultController
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
         $twig = new \Twig_Environment($loader);
 
+        new JsonResponse([
+            "success" => true,
+            "message" => "La liste des articles est bien affichée",
+            "articles" => $articles
+        ]);
         echo $twig->render('default.html', array('name' => 'Fabien', 'articles' => $articles));
     }
 

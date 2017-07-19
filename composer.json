@@ -16,6 +16,8 @@
     },
     "require": {
         "symfony/var-dumper": "^3.3",
-        "twig/twig": "^1.34"
+        "twig/twig": "^1.34",
+        "php-light/http": "^0.0.4",
+        "php-light/helpers": "^0.0.2"
     }
 }
