@@ -29,9 +29,6 @@ class DB extends \PDO
         try {
             if(!isset($this->db)) {
 
-                dump($this->getHost());
-                dump($this->getUser());
-                dump($this->getBaseName());
                 $db = new \PDO(
                     'mysql:host='.$this->getHost().
                     ';dbname='.$this->getBaseName(),

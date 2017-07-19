@@ -2,5 +2,17 @@
   "default": {
     "controller": "Aston\\BlogBundle\\Controller\\Default",
     "action": "index"
+  },
+  "add": {
+    "controller": "Aston\\BlogBundle\\Controller\\Default",
+    "action": "add"
+  },
+  "update": {
+    "controller": "Aston\\BlogBundle\\Controller\\Default",
+    "action": "update"
+  },
+  "delete": {
+    "controller": "Aston\\BlogBundle\\Controller\\Default",
+    "action": "delete"
   }
 }

@@ -10,23 +10,55 @@ namespace Aston\BlogBundle\Controller;
 
 
 use Aston\app\Request;
-use Aston\app\DB;
+use Aston\BlogBundle\Entity\Article;
+use Aston\BlogBundle\Repository\ArticleRepository;
 
 class DefaultController
 {
     public function indexAction(Request $request)
     {
-        $DB = new DB();
 
-        $sql = "SELECT * FROM article";
-        $stm = $DB->getDb()->prepare($sql);
-        $stm->execute();
+        $articleRepo = new ArticleRepository();
 
-        dump($articles = $stm->fetchAll($DB::FETCH_ASSOC));
+        dump($articles = $articleRepo->getAllArticle());
 
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
         $twig = new \Twig_Environment($loader);
 
         echo $twig->render('default.html', array('name' => 'Fabien', 'articles' => $articles));
+    }
+
+    public function addAction(Request $request)
+    {
+        $data_get = $request->getGet();
+        dump($data_get);
+        $data = array(
+            "titre" => $data_get["titre"],
+            "auteur" => $data_get["auteur"],
+            "message" => $data_get["message"]
+        );
+
+        $article = new Article($data);
+        dump($article);
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+        $twig = new \Twig_Environment($loader);
+
+        echo $twig->render('add.html', array('name' => 'Fabien'));
+    }
+
+    public function updateAction(Request $request)
+    {
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+        $twig = new \Twig_Environment($loader);
+
+        echo $twig->render('edit.html', array('name' => 'Fabien'));
+    }
+
+    public function deleteAction(Request $request)
+    {
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+        $twig = new \Twig_Environment($loader);
+
+        echo $twig->render('edit.html', array('name' => 'Fabien'));
     }
 }
