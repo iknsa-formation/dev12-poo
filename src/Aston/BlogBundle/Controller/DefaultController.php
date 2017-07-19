@@ -32,14 +32,20 @@ class DefaultController
     {
         $data_get = $request->getGet();
         dump($data_get);
-        $data = array(
-            "titre" => $data_get["titre"],
-            "auteur" => $data_get["auteur"],
-            "message" => $data_get["message"]
-        );
+        if(isset($data_get['titre'])) {
+            $data = array(
+                "titre" => $data_get["titre"],
+                "auteur" => $data_get["auteur"],
+                "message" => $data_get["message"]
+            );
 
-        $article = new Article($data);
-        dump($article);
+            $article = new Article($data);
+            $articleRepo = new ArticleRepository();
+            $articleRepo->AddArticle($article);
+
+            dump($article);
+        }
+
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
         $twig = new \Twig_Environment($loader);
 
