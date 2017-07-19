@@ -22,11 +22,11 @@ class DefaultController
         $stm = $DB->getDb()->prepare($sql);
         $stm->execute();
 
-        dump($stm->fetchAll());
+        dump($articles = $stm->fetchAll($DB::FETCH_ASSOC));
 
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
         $twig = new \Twig_Environment($loader);
 
-        echo $twig->render('default.html', array('name' => 'Fabien'));
+        echo $twig->render('default.html', array('name' => 'Fabien', 'articles' => $articles));
     }
 }

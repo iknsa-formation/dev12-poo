@@ -5,6 +5,12 @@
 </head>
 <body>
     <h1>Blog de {{name}}</h1>
-    <p>{{articles}}</p>
+
+    {% for article in articles %}
+        <div>
+        <h2>{{ article.titre }}</h2>
+            <p>{{article.message}}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>
