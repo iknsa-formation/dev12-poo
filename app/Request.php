@@ -50,6 +50,4 @@ class Request
     {
         $this->post = $post;
     }
-
-
 }

@@ -120,6 +120,4 @@ class DB extends \PDO
     {
         $this->db = $db;
     }
-
-
 }
