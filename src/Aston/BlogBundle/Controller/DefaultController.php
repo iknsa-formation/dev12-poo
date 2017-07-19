@@ -17,11 +17,9 @@ class DefaultController
 {
     public function indexAction(Request $request)
     {
-
         $articleRepo = new ArticleRepository();
 
-        dump($articles = $articleRepo->getAllArticle());
-
+        $articles = $articleRepo->getAllArticle();
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
         $twig = new \Twig_Environment($loader);
 
@@ -31,32 +29,29 @@ class DefaultController
     public function addAction(Request $request)
     {
         $data_get = $request->getGet();
-        dump($data_get);
+
         if(isset($data_get['titre'])) {
             $data = array(
                 "titre" => $data_get["titre"],
                 "auteur" => $data_get["auteur"],
                 "message" => $data_get["message"]
             );
-
             $article = new Article($data);
             $articleRepo = new ArticleRepository();
             $articleRepo->AddArticle($article);
 
-            dump($article);
+            $this->indexAction($request);
+        } else {
+            $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+            $twig = new \Twig_Environment($loader);
+            echo $twig->render('add.html', array('name' => 'Fabien'));
         }
-
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
-        $twig = new \Twig_Environment($loader);
-
-        echo $twig->render('add.html', array('name' => 'Fabien'));
     }
 
     public function updateAction(Request $request)
     {
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
         $twig = new \Twig_Environment($loader);
-
         echo $twig->render('edit.html', array('name' => 'Fabien'));
     }
 
@@ -64,7 +59,6 @@ class DefaultController
     {
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
         $twig = new \Twig_Environment($loader);
-
         echo $twig->render('edit.html', array('name' => 'Fabien'));
     }
 }

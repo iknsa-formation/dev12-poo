@@ -1,3 +1,2 @@
-/vendor/
-    .idea
-web/public/components/
+vendor/*
+.idea

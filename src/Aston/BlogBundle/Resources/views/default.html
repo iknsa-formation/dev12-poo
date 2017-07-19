@@ -3,14 +3,17 @@
     <title>BLOG</title>
     <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
 </head>
-<body class="container">
-    <h1>Blog de {{name}}</h1>
-
-    {% for article in articles %}
+<body>
+    <div class="container">
+        <h1>Blog de {{name}}</h1>
+        {% for article in articles %}
         <div>
-        <h2>{{ article.titre }}</h2>
+            <h2>{{ article.titre }} - le {{article.date}}</h2>
             <p>{{article.message}}</p>
+            <a type="button" class="btn btn-primary" href="/aston/?route=update&id={{article.id}}">Modifier cet article</a>
+            <a type="button" class="btn btn-primary" href="/aston/?route=delete&id={{article.id}}">Supprimer cet article</a>
         </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </body>
 </html>

@@ -2,29 +2,23 @@
 <head>
     <title>BLOG</title>
     <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
-
 </head>
-    <body class="container-fluid">
-        <h1>Ajout</h1>
-        <form action="/aston/?route=add" id="new-article" method="get" name="new-client">
-            <div class="form-group row">
-                <div class="col-lg-6">
-                    <label for="titre">Titre</label>
-                    <input type="text" id="titre" name="titre">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-lg-6">
+<body>
+    <div class="container">
 
-                    <label for="auteur">Auteur</label>
-                    <input type="text" id="auteur" name="auteur">
-                </div>
+        <h1>Ajout</h1>
+        <form id="new-article" method="get" name="new-client">
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <input class="form-control" type="text" id="titre" name="titre">
             </div>
-            <div class="form-group row">
-                <div class="col-lg-6">
-                    <label for="message">Message</label>
-                    <input type="text" id="message" name="message">
-                </div>
+            <div class="form-group">
+                <label for="auteur">Auteur</label>
+                <input class="form-control" type="text" id="auteur" name="auteur">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message"></textarea>
             </div>
             <div>
                 <input type="hidden" name="route" id="route" value="add">
@@ -33,5 +27,6 @@
                 <input type="submit" class="btn btn-primary">
             </div>
         </form>
-    </body>
+    </div>
+</body>
 </html>

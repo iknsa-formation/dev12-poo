@@ -1,0 +1,26 @@
+{
+  "name": "Blog for Aston school",
+  "homepage": "https://github.com/iknsa-formation/dev12-poo",
+  "authors": [
+    "Moustakime KIFIA <mkifia@icloud.com>"
+  ],
+  "description": "",
+  "main": "index.php",
+  "keywords": [
+    "Aston",
+    "blog",
+    "dev12"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

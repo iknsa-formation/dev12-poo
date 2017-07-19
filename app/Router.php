@@ -33,7 +33,6 @@ class Router
     public function setRoutes()
     {
         $this->routes = json_decode(file_get_contents("app/routing.json"), true);
-        dump($this->routes);
         return $this;
     }
 
@@ -51,6 +50,4 @@ class Router
             "routeDetails" => $this->routeDetails
         ];
     }
-
-
 }
