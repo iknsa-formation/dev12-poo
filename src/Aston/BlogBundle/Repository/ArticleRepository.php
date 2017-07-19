@@ -58,4 +58,12 @@ class ArticleRepository
             )
         );
     }
+
+    public function deleteArticle($id)
+    {
+        $DB = new DB();
+        $sql = "DELETE FROM article WHERE id = ?";
+        $stm = $DB->getDb()->prepare($sql);
+        $stm->execute(array( $id ));
+    }
 }

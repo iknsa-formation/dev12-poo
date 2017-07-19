@@ -75,8 +75,11 @@ class DefaultController
 
     public function deleteAction(Request $request)
     {
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
-        $twig = new \Twig_Environment($loader);
-        echo $twig->render('edit.html', array('name' => 'Fabien'));
+        if(isset($request->getGet()["id"])) {
+            $articleRepo = new ArticleRepository();
+            $id = $request->getGet()["id"];
+            $articleRepo->deleteArticle($id);
+        }
+        $this->indexAction($request);
     }
 }
