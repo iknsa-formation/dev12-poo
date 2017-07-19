@@ -10,8 +10,8 @@
         <div>
             <h2>{{ article.titre }} - le {{article.date}}</h2>
             <p>{{article.message}}</p>
-            <a type="button" class="btn btn-primary" href="/aston/?route=update&id={{article.id}}">Modifier cet article</a>
-            <a type="button" class="btn btn-primary" href="/aston/?route=delete&id={{article.id}}">Supprimer cet article</a>
+            <a type="button" class="btn btn-primary" href="/aston/?route=update&id={{article.id}}&origin=default">Modifier cet article</a>
+            <a type="button" class="btn btn-danger" href="/aston/?route=delete&id={{article.id}}&origin=default">Supprimer cet article</a>
         </div>
         {% endfor %}
     </div>

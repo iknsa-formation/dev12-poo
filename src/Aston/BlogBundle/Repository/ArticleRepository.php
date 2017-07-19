@@ -34,4 +34,28 @@ class ArticleRepository
             )
         );
     }
+
+    public function getArticleById($id)
+    {
+        $DB = new DB();
+        $sql = "SELECT * FROM article WHERE  id= ?";
+        $stm = $DB->getDb()->prepare($sql);
+        $stm->execute(array($id));
+        $arr = $stm->fetchAll($DB::FETCH_ASSOC);
+        return $arr[0];
+    }
+
+    public function updateArticle($article)
+    {
+        $DB = new DB();
+        $sql = "UPDATE article SET titre = ?, auteur = ?, message = ?";
+        $stm = $DB->getDb()->prepare($sql);
+        $stm->execute(
+            array(
+                $article->getTitre(),
+                $article->getAuteur(),
+                $article->getMessage()
+            )
+        );
+    }
 }
