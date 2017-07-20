@@ -18,8 +18,6 @@ class AuteurController
     {
         $auteurRepo = new AuteurRepository();
         $auteurs = $auteurRepo->listAuteurs();
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Auteur');
-        $twig = new \Twig_Environment($loader);
         return new JsonResponse([
             "success" => true,
             "message" => "L'utilisateur a bien été modifié",
@@ -29,10 +27,7 @@ class AuteurController
 
     public function editAction(Request $request)
     {
-        json_encode($request);
         $auteurRepo = new AuteurRepository();
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Auteur');
-        $twig = new \Twig_Environment($loader);
         if(isset($request->getGet()["origin"]) && $request->getGet()["origin"] === "default") {
             $auteur = $auteurRepo->getAuteurById($request->getGet()["id"]);
             return new JsonResponse([
@@ -40,19 +35,15 @@ class AuteurController
                 "message" => "L'utilisateur a bien été modifié",
                 "auteur" => $auteur
             ]);
-//            echo $twig->render('edit_auteur.html', array('name' => 'Fabien', 'auteur' => $auteur));
-        } else {
-            if(isset($request->getGet()["nom"])) {
-                $data_get = $request->getGet();
-                $data = array(
-                    "nom" => $data_get["nom"],
-                    "prenom" => $data_get["prenom"],
-                    "fonction" => $data_get["fonction"]
-                );
-                $auteur = new Auteur($data);
-                $auteurRepo->updateAuteur($auteur, $request->getGet()["id"]);
-            }
-            $this->listAction($request);
+        } else if(isset($request->getGet()["nom"])) {
+            $data_get = $request->getGet();
+            $data = array(
+                "nom" => $data_get["nom"],
+                "prenom" => $data_get["prenom"],
+                "fonction" => $data_get["fonction"]
+            );
+            $auteur = new Auteur($data);
+            $auteurRepo->updateAuteur($auteur, $request->getGet()["id"]);
         }
     }
     public function addAction(Request $request)
@@ -67,23 +58,19 @@ class AuteurController
             $auteur = new Auteur($data);
             $auteurRepo = new AuteurRepository();
             $auteurRepo->AddAuteur($auteur);
-
-            $this->listAction($request);
-        } else {
-            $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Auteur');
-            $twig = new \Twig_Environment($loader);
-            echo $twig->render('add_auteur.html', array('name' => 'Fabien'));
         }
     }
 
     public function showAction(Request $request)
     {
         $auteurRepo = new AuteurRepository();
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Auteur');
-        $twig = new \Twig_Environment($loader);
         if(isset($request->getGet()["origin"]) && $request->getGet()["origin"] === "default") {
             $auteur = $auteurRepo->getAuteurById($request->getGet()["id"]);
-            echo $twig->render('show_auteur.html', array('name' => 'Fabien', 'auteur' => $auteur));
+            return new JsonResponse([
+                "success" => true,
+                "message" => "L'utilisateur a bien été modifié",
+                "auteur" => $auteur
+            ]);
         }
     }
 

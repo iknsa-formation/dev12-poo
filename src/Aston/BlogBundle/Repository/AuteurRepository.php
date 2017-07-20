@@ -15,7 +15,7 @@ class AuteurRepository
     public function listAuteurs()
     {
         $DB = new DB();
-        $sql = "SELECT * FROM auteur ORDER BY prenom, nom";
+        $sql = "SELECT * FROM auteur ORDER BY id_auteur DESC";
         $stm = $DB->getDb()->prepare($sql);
         $stm->execute();
         return $stm->fetchAll($DB::FETCH_ASSOC);

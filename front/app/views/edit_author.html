@@ -4,21 +4,24 @@
     <a class="btn btn-link" href="#/" title="authors">Accueil</a>
     <a class="btn btn-link" href="#/authors" title="authors">Liste des auteurs</a>
 </div>
-<form novalidate name="authorForm" class="form-inline" ng-submit="update()">
-    <div class="form-group">
-        <label class="sr-only" for="">Nom</label>
-        <input type="text" class="form-control" placeholder="Nom" ng-required name="authorNewName" ng-model="authorNewName">
-    </div>
-    <div class="form-group">
-        <label class="sr-only" for="">Prenom</label>
-        <input type="text" class="form-control" placeholder="Prenom" ng-required name="authorNewPrename" ng-model="authorNewPrename">
-    </div>
-    <div class="form-group">
-        <label class="sr-only" for="">Fonction</label>
-        <input type="text" class="form-control" placeholder="Fonction" ng-required name="authorNewFunction" ng-model="authorNewFunction">
-    </div>
-    <button type="submit" class="btn btn-success" ng-disabled="authorForm.$invalid">Modifier cet auteur</button>
-</form>
+<div class="add">
+    {{aut}}
+    <form novalidate name="authorForm" class="form-inline" ng-submit="update()">
+        <div class="form-group">
+            <label class="sr-only">Nom</label>
+            <input type="text" class="form-control" placeholder="Nom" ng-required name="authorNewName" ng-model="authorNewName">
+        </div>
+        <div class="form-group">
+            <label class="sr-only">Prenom</label>
+            <input type="text" class="form-control" placeholder="Prenom" ng-required name="authorNewPrename" ng-model="authorNewPrename">
+        </div>
+        <div class="form-group">
+            <label class="sr-only">Fonction</label>
+            <input type="text" class="form-control" placeholder="Fonction" ng-required name="authorNewFunction" ng-model="authorNewFunction">
+        </div>
+        <button type="submit" class="btn btn-success" ng-disabled="authorForm.$invalid">Modifier cet auteur</button>
+    </form>
+</div>
 <br>
 
 <i>Biographie</i>

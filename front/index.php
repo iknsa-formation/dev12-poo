@@ -9,11 +9,10 @@
 	<script type="text/javascript" src="app/scripts/app.js"></script>
 	<script type="text/javascript" src="app/scripts/controllers/controller.js"></script>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="app/styles/author.css">
 </head>
 
 <body ng-app="authorApp" class="container">
-	{{authors}}
-	<div data:ng-view></div>
-
+    <ng-view></ng-view>
 </body>
 </html>
