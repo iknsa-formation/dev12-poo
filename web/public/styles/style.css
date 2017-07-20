@@ -11,3 +11,11 @@ ul li a {
     margin: auto;
     min-width: 100px;
 }
+
+.card .card-block {
+    border: 1px solid darkgray;
+    padding: 0 0 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    width: 80%;
+}

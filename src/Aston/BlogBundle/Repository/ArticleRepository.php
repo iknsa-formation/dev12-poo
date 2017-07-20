@@ -38,7 +38,7 @@ class ArticleRepository
     public function getArticleById($id)
     {
         $DB = new DB();
-        $sql = "SELECT * FROM article WHERE  id= ?";
+        $sql = "SELECT * FROM article WHERE  id = ?";
         $stm = $DB->getDb()->prepare($sql);
         $stm->execute(array($id));
         $arr = $stm->fetchAll($DB::FETCH_ASSOC);

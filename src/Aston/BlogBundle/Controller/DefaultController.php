@@ -81,12 +81,12 @@ class DefaultController
 
     public function showAction(Request $request)
     {
-        $auteurRepo = new ArticleRepository();
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Auteur');
+        $articleRepo = new ArticleRepository();
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Default');
         $twig = new \Twig_Environment($loader);
         if(isset($request->getGet()["origin"]) && $request->getGet()["origin"] === "default") {
-            $auteur = $auteurRepo->getArticleById($request->getGet()["id"]);
-            echo $twig->render('show.html', array('name' => 'Fabien', 'auteur' => $auteur));
+            $article = $articleRepo->getArticleById($request->getGet()["id"]);
+            echo $twig->render('show.html', array('name' => 'Fabien', 'article' => $article));
         }
     }
 }

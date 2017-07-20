@@ -17,12 +17,14 @@
     </div>
     <h1>Blog de {{name}}</h1>
     {% for auteur in auteurs %}
-    <div>
-        <h2>{{ auteur.prenom }} {{ auteur.nom }}</h2>
-        <p>{{ auteur.fonction }}</p>
-        <a type="button" class="btn btn-primary" href="/aston/?route=edit_auteur&id={{auteur.id_auteur}}&origin=default">Modifier cet auteur</a>
-        <a type="button" class="btn btn-danger" href="/aston/?route=delete_auteur&id={{auteur.id_auteur}}&origin=default">Supprimer cet auteur</a>
-        <a type="button" class="btn btn-success" href="/aston/?route=show_auteur&id={{auteur.id_auteur}}&origin=default">Détails de l'auteur</a>
+    <div class="card">
+        <div class="card-block">
+            <h2 class="card-title">{{ auteur.prenom }} {{ auteur.nom }}</h2>
+            <p class="card-text">{{ auteur.fonction }}</p>
+            <a type="button" class="btn btn-primary" href="/aston/?route=edit_auteur&id={{auteur.id_auteur}}&origin=default">Modifier cet auteur</a>
+            <a type="button" class="btn btn-danger" href="/aston/?route=delete_auteur&id={{auteur.id_auteur}}&origin=default">Supprimer cet auteur</a>
+            <a type="button" class="btn btn-success" href="/aston/?route=show_auteur&id={{auteur.id_auteur}}&origin=default">Détails de l'auteur</a>
+        </div>
     </div>
     {% endfor %}
 </div>
