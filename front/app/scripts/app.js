@@ -18,7 +18,7 @@ app.config(function($routeProvider) {
 
 	}).when('/author/edit/:id', {
 		templateUrl : 'app/views/edit_author.html',
-		controller : 'authorCtrl'
+		controller : 'editAuthorCtrl'
 
 	}).otherwise({
 		redirectTo : '/'

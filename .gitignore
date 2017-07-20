@@ -1,3 +1,4 @@
 vendor/*
 .idea
 web/public/components/
+front/bower_components/

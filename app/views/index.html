@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>BLOG</title>
+    <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="web/public/styles/style.css">
+    <link rel="stylesheet" href="web/public/styles/auteur.css">
+    <script type="application/javascript" src="web/public/components/angular/angular.js"></script>
+    <script type="application/javascript" src="web/public/components/angular-route/angular-route.js"></script>
+    <script type="application/javascript" src="web/public/scripts/auteur.module.js"></script>
+    <script type="application/javascript" src="web/public/scripts/auteur.controller.js"></script>
 </head>
-<body>
-$END$
+<body ng-app="auteur">
+<div class="container" ng-controller="AuteurCtrl">
+    {{auteur.data}}
+    <div class="jumbotron">
+        <ul>
+            <li><a class="btn btn-default" href="/aston">Accueil des articles</a></li>
+            <li><a class="btn btn-default" href="/aston/?route=list_auteur">Accueil des auteurs</a></li>
+            <li><a class="btn btn-default" href="/aston/?route=add_auteur">Ajout un auteur</a></li>
+        </ul>
+    </div>
+    <h1>Blog de {{name}}</h1>
+    {% for auteur in auteurs %}
+    <div class="card">
+        <div class="card-block">
+            <h2 class="card-title">{{ auteur.prenom }} {{ auteur.nom }}</h2>
+            <p class="card-text">{{ auteur.fonction }}</p>
+            <a type="button" class="btn btn-primary" href="/aston/?route=edit_auteur&id={{auteur.id_auteur}}&origin=default">Modifier cet auteur</a>
+            <a type="button" class="btn btn-danger" href="/aston/?route=delete_auteur&id={{auteur.id_auteur}}&origin=default">Supprimer cet auteur</a>
+            <a type="button" class="btn btn-success" href="/aston/?route=show_auteur&id={{auteur.id_auteur}}&origin=default">Détails de l'auteur</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 </body>
 </html>
