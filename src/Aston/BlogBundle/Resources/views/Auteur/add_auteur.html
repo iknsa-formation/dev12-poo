@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>BLOG</title>
+    <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="web/public/styles/style.css">
+    <link rel="stylesheet" href="web/public/styles/auteur.css">
 </head>
 <body>
-$END$
+<div class="container">
+    <div class="jumbotron">
+        <ul>
+            <li><a class="btn btn-default" href="/aston">Accueil des articles</a></li>
+            <li><a class="btn btn-default" href="/aston/?route=list_auteur">Accueil des auteurs</a></li>
+            <li><a class="btn btn-default" href="/aston/?route=add_auteur">Ajout d'un auteur</a></li>
+        </ul>
+    </div>
+    <h1>Ajouter un auteur</h1>
+    <form id="new-auteur" method="get" name="new-auteur">
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input placeholder="Nom" class="form-control" type="text" id="nom" name="nom">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prenom</label>
+            <input placeholder="Prenom" class="form-control" type="text" id="prenom" name="prenom">
+        </div>
+        <div class="form-group">
+            <label for="fonction">Fonction</label>
+            <textarea placeholder="Fonction" class="form-control" id="fonction" name="fonction"></textarea>
+        </div>
+        <div>
+            <input type="hidden" name="route" id="route" value="add_auteur">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
 </body>
 </html>

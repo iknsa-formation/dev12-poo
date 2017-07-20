@@ -19,22 +19,15 @@ class DefaultController
     {
         $articleRepo = new ArticleRepository();
         $articles = $articleRepo->getAllArticle();
-        dump($articles);
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Default');
         $twig = new \Twig_Environment($loader);
 
-        new JsonResponse([
-            "success" => true,
-            "message" => "La liste des articles est bien affichée",
-            "articles" => $articles
-        ]);
         echo $twig->render('default.html', array('name' => 'Fabien', 'articles' => $articles));
     }
 
     public function addAction(Request $request)
     {
         $data_get = $request->getGet();
-
         if(isset($data_get['titre'])) {
             $data = array(
                 "titre" => $data_get["titre"],
@@ -47,7 +40,7 @@ class DefaultController
 
             $this->indexAction($request);
         } else {
-            $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+            $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Default');
             $twig = new \Twig_Environment($loader);
             echo $twig->render('add.html', array('name' => 'Fabien'));
         }
@@ -55,13 +48,11 @@ class DefaultController
 
     public function updateAction(Request $request)
     {
-        dump($request);
         $articleRepo = new ArticleRepository();
-        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views');
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Default');
         $twig = new \Twig_Environment($loader);
         if(isset($request->getGet()["origin"]) && $request->getGet()["origin"] === "default") {
             $article = $articleRepo->getArticleById($request->getGet()["id"]);
-            dump($article);
             echo $twig->render('edit.html', array('name' => 'Fabien', 'article' => $article));
         } else {
             if(isset($request->getGet()["titre"])) {
@@ -72,7 +63,7 @@ class DefaultController
                     "message" => $data_get["message"]
                 );
                 $article = new Article($data);
-                $articleRepo->updateArticle($article);
+                $articleRepo->updateArticle($article, $request->getGet()["id"]);
             }
             $this->indexAction($request);
         }

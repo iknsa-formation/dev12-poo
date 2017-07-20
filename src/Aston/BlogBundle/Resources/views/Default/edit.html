@@ -2,14 +2,16 @@
 <head>
     <title>BLOG</title>
     <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="web/public/styles/style.css">
     <link rel="stylesheet" href="web/public/styles/article.css">
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
             <ul>
-                <li><a class="btn btn-default" href="/aston">Accueil</a></li>
-                <li><a class="btn btn-default" href="/aston/?route=add">Ajout</a></li>
+                <li><a class="btn btn-default" href="/aston">Accueil des articles</a></li>
+                <li><a class="btn btn-default" href="/aston/?route=add">Ajout d'un article</a></li>
+                <li><a class="btn btn-default" href="/aston/?route=list_auteur">Accueil des auteurs</a></li>
             </ul>
         </div>
         <h1>Modification</h1>
@@ -29,6 +31,8 @@
             </div>
             <div>
                 <input type="hidden" name="route" id="route" value="update">
+                <input type="hidden" name="id" id="id" value="{{article.id}}">
+
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary">
