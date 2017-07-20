@@ -38,6 +38,7 @@ class Router
 
     public function getRoute(Request $request)
     {
+        dump($request);
         foreach ($this->routes as $routeName => $routeDetails) {
             if($request->getGet()["route"] === $routeName) {
                 $this->routeName = $routeName;
