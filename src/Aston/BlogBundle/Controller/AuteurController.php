@@ -47,7 +47,6 @@ class AuteurController
     }
     public function addAction(Request $request)
     {
-        dump($request);
         $data_get = $request->getGet();
         if(isset($data_get['nom'])) {
             $data = array(
@@ -69,7 +68,13 @@ class AuteurController
 
     public function showAction(Request $request)
     {
-        echo "detail d'un auteur";
+        $auteurRepo = new AuteurRepository();
+        $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Auteur');
+        $twig = new \Twig_Environment($loader);
+        if(isset($request->getGet()["origin"]) && $request->getGet()["origin"] === "default") {
+            $auteur = $auteurRepo->getAuteurById($request->getGet()["id"]);
+            echo $twig->render('show_auteur.html', array('name' => 'Fabien', 'auteur' => $auteur));
+        }
     }
 
     public function deleteAction(Request $request)

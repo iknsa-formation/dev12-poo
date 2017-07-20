@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>BLOG</title>
+    <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="web/public/styles/style.css">
+    <link rel="stylesheet" href="web/public/styles/article.css">
 </head>
 <body>
+<div class="container">
+    <div class="jumbotron">
+        <ul>
+            <li><a class="btn btn-default" href="/aston">Accueil des articles</a></li>
+            <li><a class="btn btn-default" href="/aston/?route=list_auteur">Accueil des auteurs</a></li>
+            <li><a class="btn btn-default" href="/aston/?route=add_auteur">Ajout d'un auteur</a></li>
+        </ul>
+    </div>
+    <h1>Détails de l'auteur</h1>
 
+        <h2>{{auteur.nom}} {{auteur.prenom}}</h2>
+        <p>{{auteur.fonction}}</p>
+
+</div>
 </body>
 </html>

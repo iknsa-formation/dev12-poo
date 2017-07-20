@@ -14,15 +14,11 @@
                 <li><a class="btn btn-default" href="/aston/?route=add">Ajout d'un article</a></li>
             </ul>
         </div>
-        <h1>Blog de {{name}}</h1>
-        {% for article in articles %}
-        <div>
-            <h2>{{ article.titre }} - le {{article.date}}</h2>
-            <p>{{article.message}}</p>
-            <a type="button" class="btn btn-primary" href="/aston/?route=update&id={{article.id}}&origin=default">Modifier cet article</a>
-            <a type="button" class="btn btn-danger" href="/aston/?route=delete&id={{article.id}}&origin=default">Supprimer cet article</a>
-        </div>
-        {% endfor %}
+        <h1>Détails de l'auteur</h1>
+
+        <h2>{{auteur.nom}} {{auteur.prenom}}</h2>
+        <p>{{auteur.fonction}}</p>
+
     </div>
 </body>
 </html>
