@@ -2,9 +2,16 @@
 <head>
     <title>BLOG</title>
     <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="web/public/styles/article.css">
 </head>
 <body>
     <div class="container">
+        <div class="jumbotron">
+            <ul>
+                <li><a class="btn btn-default" href="/aston">Accueil</a></li>
+                <li><a class="btn btn-default" href="/aston/?route=add">Ajout</a></li>
+            </ul>
+        </div>
         <h1>Blog de {{name}}</h1>
         {% for article in articles %}
         <div>

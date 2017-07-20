@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `auteur`
 --
-
+DROP TABLE auteur;
 CREATE TABLE IF NOT EXISTS `auteur` (
   `id_auteur` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) DEFAULT NULL,
