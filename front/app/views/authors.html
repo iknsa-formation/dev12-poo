@@ -1,0 +1,46 @@
+<div class="jumbotron">
+    <h2>Liste des auteurs</h2>
+    <a class="btn btn-link" href="#/" title="authors">Accueil</a>
+</div>
+<form novalidate name="authorForm" class="form-inline" ng-submit="add()">
+    <div class="form-group">
+        <label class="sr-only" for="">Nom</label>
+        <input type="text" class="form-control" id="" placeholder="Nom" required name="authorName" ng-model="authorName">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="">Prenom</label>
+        <input type="text" class="form-control" id="" placeholder="Prenom" required name="authorPrename" ng-model="authorPrename">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="">Fonction</label>
+        <input type="text" class="form-control" id="" placeholder="Fonction" required name="authorFunction" ng-model="authorFunction">
+    </div>
+    <button type="submit" class="btn btn-success" ng-disabled="authorForm.$invalid">Ajouter un auteur</button>
+</form>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Fontion</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+                <th>Détail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="author in authors">
+                <td>{{author.id_auteur}}</td>
+                <td>{{author.nom}}</td>
+                <td>{{author.prenom}}</td>
+                <td>{{author.fonction}}</td>
+                <td><a class="btn btn-warning" ng-href="#/author/edit/{{author.id_auteur}}" title="">modifier</a></td>
+                <td><button ng-click="delete(author)" class="btn btn-danger">supprimer</button></td>
+                <td><a class="btn btn-default" ng-href="#/author/{{author.id_auteur}}" title="">voir</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

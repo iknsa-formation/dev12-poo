@@ -10,6 +10,7 @@ namespace Aston\BlogBundle\Controller;
 use Aston\BlogBundle\Entity\Auteur;
 use Aston\app\Request;
 use Aston\BlogBundle\Repository\AuteurRepository;
+use Romenys\Http\Response\JsonResponse;
 
 class AuteurController
 {
@@ -19,8 +20,11 @@ class AuteurController
         $auteurs = $auteurRepo->listAuteurs();
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Auteur');
         $twig = new \Twig_Environment($loader);
-
-        echo $twig->render('list_auteur.html', array('name' => 'Fabien', 'auteurs' => $auteurs));
+        return new JsonResponse([
+            "success" => true,
+            "message" => "L'utilisateur a bien été modifié",
+            "auteurs" => $auteurs
+        ]);
     }
 
     public function editAction(Request $request)
