@@ -1,6 +1,8 @@
 <div class="jumbotron">
+    <li><a class="btn btn-default" href="/aston">Accueil des articles (front avec twig)</a></li>
+    <li><a class="btn btn-default" href="/aston/front">Accueil des auteurs (front avec angular 1.6)</a></li>
     <h2>Liste des auteurs</h2>
-    <a class="btn btn-link" href="#/" title="authors">Accueil</a>
+    <a class="btn btn-link" href="#!/" title="authors">Accueil</a>
 </div>
 <div class="add">
     <form novalidate name="authorForm" class="form-inline" ng-submit="add()">
@@ -39,9 +41,9 @@
                 <td>{{author.nom}}</td>
                 <td>{{author.prenom}}</td>
                 <td>{{author.fonction}}</td>
-                <td><a class="btn btn-warning" ng-href="#/author/edit/{{author.id_auteur}}" title="">modifier</a></td>
+                <td><a class="btn btn-warning" ng-href="#!/author/edit/{{author.id_auteur}}" title="">modifier</a></td>
                 <td><button ng-click="delete(author)" class="btn btn-danger">supprimer</button></td>
-                <td><a class="btn btn-default" ng-href="#/author/{{author.id_auteur}}" title="">voir</a></td>
+                <td><a class="btn btn-default" ng-href="#!/author/{{author.id_auteur}}" title="">voir</a></td>
             </tr>
         </tbody>
     </table>

@@ -14,13 +14,8 @@
                 <li><a class="btn btn-default" href="/aston/?route=add">Ajout d'un article</a></li>
             </ul>
         </div>
-        <h1>Détails de l'article</h1>
-        <div class="card">
-            <div class="card-block">
-                <h2>{{article.titre}} {{article.auteur}}</h2>
-                <p>{{article.message}}</p>
-            </div>
-        </div>
+        {%block content %}
+        {%endblock%}
     </div>
 </body>
 </html>

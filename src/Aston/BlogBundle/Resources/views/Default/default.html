@@ -9,8 +9,8 @@
     <div class="container">
         <div class="jumbotron">
             <ul>
-                <li><a class="btn btn-default" href="/aston">Accueil des articles</a></li>
-                <li><a class="btn btn-default" href="/aston/?route=list_auteur">Accueil des auteurs</a></li>
+                <li><a class="btn btn-default" href="/aston">Accueil des articles (front avec twig)</a></li>
+                <li><a class="btn btn-default" href="/aston/front">Accueil des auteurs (front avec angular 1.5)</a></li>
                 <li><a class="btn btn-default" href="/aston/?route=add">Ajout d'un article</a></li>
             </ul>
         </div>
@@ -18,7 +18,7 @@
         {% for article in articles %}
         <div class="card">
             <div class="card-block">
-                <h2 class="card-title">{{ article.titre }} - le {{article.date}}</h2>
+                <h2 class="card-title">{{ article.titre }} - modifié le {{article.date}}</h2>
                 <p class="card-text">{{article.message}}</p>
                 <a type="button" class="btn btn-primary" href="/aston/?route=update&id={{article.id}}&origin=default">Modifier cet article</a>
                 <a type="button" class="btn btn-danger" href="/aston/?route=delete&id={{article.id}}&origin=default">Supprimer cet article</a>

@@ -10,17 +10,16 @@ app.controller('authorsCtrl', ['$scope', '$http', '$route', function($scope, $ht
 	});
 
 	$scope.delete = function(author) {
-
-		$http.delete('services/api.php',
+		$http.delete('/aston/',
 		{
 			params : {
-			    method: 'deleteAuthor',
-                id_auteur: author.id_auteur
+                route: 'delete_auteur',
+                id: author.id_auteur
 			}
-		}).then(function(result) {
+		}).then(function() {
 			$route.reload();
 		});
-	}
+	};
 	$scope.add = function() {
 		$http.get('/aston/',
 		{
@@ -33,7 +32,7 @@ app.controller('authorsCtrl', ['$scope', '$http', '$route', function($scope, $ht
 		}).then(function() {
 			$route.reload();
 		});
-	}
+	};
 }]);
 
 app.controller('authorCtrl', ['$scope', '$http', '$routeParams', '$route', '$location', function($scope, $http, $routeParams, $route, $location){
@@ -84,9 +83,9 @@ app.controller('editAuthorCtrl', function($scope, $http, $routeParams, $location
         }).then(function () {
             $location.path('authors');
         });
-    }
+    };
 });
 
-app.constructor('homeCtrl', ['$scope', function ($scope) {
-	console.log($scope);
+app.controller('homeCtrl', ['$scope', function ($scope) {
+
 }]);
