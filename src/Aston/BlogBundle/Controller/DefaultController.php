@@ -22,7 +22,7 @@ class DefaultController
         $loader = new \Twig_Loader_Filesystem(__DIR__ .'/../Resources/views/Default');
         $twig = new \Twig_Environment($loader);
 
-        echo $twig->render('default.html', array('name' => 'Fabien', 'articles' => $articles));
+        echo $twig->render('list.html', array('name' => 'Fabien', 'articles' => $articles));
     }
 
     public function addAction(Request $request)
