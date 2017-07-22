@@ -1,2 +1,4 @@
 vendor/*
 .idea
+web/public/components/*
+!/web/public/components/
