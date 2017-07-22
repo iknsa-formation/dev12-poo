@@ -1,0 +1,35 @@
+<div class="jumbotron">
+    <li><a class="btn btn-default" href="/aston">Accueil des articles (front avec twig)</a></li>
+    <li><a class="btn btn-default" href="/aston/front">Accueil des auteurs (front avec angular 1.6)</a></li>
+    <h2>Modifier les informations de cet auteur</h2>
+    <a class="btn btn-link" href="#!/" title="authors">Accueil</a>
+    <a class="btn btn-link" href="#!/authors" title="authors">Liste des auteurs</a>
+</div>
+<div class="add">
+    {{aut}}
+    <form novalidate name="authorForm" class="form-inline" ng-submit="update()">
+        <div class="form-group">
+            <label class="sr-only">Nom</label>
+            <input type="text" class="form-control" placeholder="Nom" ng-required name="authorNewName" ng-model="authorNewName">
+        </div>
+        <div class="form-group">
+            <label class="sr-only">Prenom</label>
+            <input type="text" class="form-control" placeholder="Prenom" ng-required name="authorNewPrename" ng-model="authorNewPrename">
+        </div>
+        <div class="form-group">
+            <label class="sr-only">Fonction</label>
+            <input type="text" class="form-control" placeholder="Fonction" ng-required name="authorNewFunction" ng-model="authorNewFunction">
+        </div>
+        <button type="submit" class="btn btn-success" ng-disabled="authorForm.$invalid">Modifier cet auteur</button>
+    </form>
+</div>
+<br>
+
+<i>Biographie</i>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

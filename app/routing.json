@@ -14,5 +14,29 @@
   "delete": {
     "controller": "Aston\\BlogBundle\\Controller\\Default",
     "action": "delete"
+  },
+  "show": {
+    "controller": "Aston\\BlogBundle\\Controller\\Default",
+    "action": "show"
+  },
+  "list_auteur": {
+    "controller": "Aston\\BlogBundle\\Controller\\Auteur",
+    "action": "list"
+  },
+  "add_auteur": {
+    "controller": "Aston\\BlogBundle\\Controller\\Auteur",
+    "action": "add"
+  },
+  "edit_auteur": {
+    "controller": "Aston\\BlogBundle\\Controller\\Auteur",
+    "action": "edit"
+  },
+  "delete_auteur": {
+    "controller": "Aston\\BlogBundle\\Controller\\Auteur",
+    "action": "delete"
+  },
+  "show_auteur": {
+    "controller": "Aston\\BlogBundle\\Controller\\Auteur",
+    "action": "show"
   }
 }

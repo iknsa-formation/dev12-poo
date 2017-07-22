@@ -10,11 +10,13 @@ namespace Aston\BlogBundle\Entity;
 
 
 class Article {
+
     private $_titre;
     private $_auteur;
     private $_date;
     private $_image;
     private $_message;
+
     public function __construct($data) {
         $this->hydrate($data);
     }

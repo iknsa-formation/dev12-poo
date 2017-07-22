@@ -2,12 +2,20 @@
 <head>
     <title>BLOG</title>
     <link rel="stylesheet" href="web/public/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="web/public/styles/style.css">
+    <link rel="stylesheet" href="web/public/styles/article.css">
 </head>
 <body>
     <div class="container">
+        <div class="jumbotron">
+            <ul>
+                <li><a class="btn btn-default" href="/aston">Accueil des articles (front avec twig)</a></li>
+                <li><a class="btn btn-default" href="/aston/front">Accueil des auteurs (front avec angular 1.5)</a></li>
+                <li><a class="btn btn-default" href="/aston/?route=add">Ajout d'un article</a></li>
+            </ul>
+        </div>
         <h1>Modification</h1>
-        {{name}}
-        {{article.titre}}
+
         <form id="new-article" method="get" name="new-client">
             <div class="form-group">
                 <label for="titre">Titre</label>
@@ -23,9 +31,12 @@
             </div>
             <div>
                 <input type="hidden" name="route" id="route" value="update">
+                <input type="hidden" name="id" id="id" value="{{article.id}}">
+
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary">
+                <a href="/aston" class="btn btn-default">Annuler</a>
             </div>
         </form>
     </div>
