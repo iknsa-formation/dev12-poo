@@ -59,4 +59,12 @@ class AuteurRepository
             )
         );
     }
+
+    public function deleteAuteur($id)
+    {
+        $DB = new DB();
+        $sql = "DELETE FROM auteur WHERE id_auteur = ?";
+        $stm = $DB->getDb()->prepare($sql);
+        $stm->execute(array( $id ));
+    }
 }

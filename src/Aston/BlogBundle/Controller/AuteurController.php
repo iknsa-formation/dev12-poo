@@ -76,6 +76,10 @@ class AuteurController
 
     public function deleteAction(Request $request)
     {
-        echo "suppression d'un auteur";
+        if(isset($request->getGet()["id"])) {
+            $auteurRepo = new AuteurRepository();
+            $id = $request->getGet()["id"];
+            $auteurRepo->deleteAuteur($id);
+        }
     }
 }
